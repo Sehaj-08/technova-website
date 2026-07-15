@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | NexaStart</title>
+    <style>
+        /* CSS RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .btn-nav {
+            background-color: #4f46e5;
+            color: #ffffff !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.5rem;
+        }
+
+        .btn-nav:hover {
+            background-color: #4338ca;
+        }
+
+        /* HEADER HEADER CONTAINER */
+        .services-hero {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            text-align: center;
+            padding: 5rem 5%;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .services-hero h1 {
+            font-size: 2.75rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .services-hero p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #64748b;
+        }
+
+        /* CAPABILITIES LIST GRID */
+        .capabilities {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-box {
+            background-color: #ffffff;
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-box .icon {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            width: 50px;
+            height: 50px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-box h2 {
+            font-size: 1.35rem;
+            color: #1e293b;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-box p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* PRICING STRUCTURE SELECTION AREA */
+        .pricing-section {
+            background-color: #ffffff;
+            padding: 6rem 5%;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 2.25rem;
+            color: #1e293b;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background-color: #ffffff;
+            border: 2px solid #4f46e5;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: scale(1.03);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 0.25rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tier-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .features-list li {
+            color: #475569;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .features-list li::before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .btn-pricing {
+            display: block;
+            background-color: #e2e8f0;
+            color: #1e293b;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .featured .btn-pricing {
+            background-color: #4f46e5;
+            color: #ffffff;
+        }
+
+        .featured .btn-pricing:hover {
+            background-color: #4338ca;
+        }
+
+        .btn-pricing:hover {
+            background-color: #cbd5e1;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            .services-hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+        <a href="index.html" class="logo">🚀 NexaStart</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" style="color: #4f46e5;">Services</a></li>
+            <li><a href="#" class="btn-nav">Get Started</a></li>
+        </ul>
+    </header>
+
+    <!-- SERVICES HERO -->
+    <section class="services-hero">
+        <h1>What We Do</h1>
+        <p>Tailored enterprise solutions engineered to optimize digital architecture and drive operations.</p>
+    </section>
+
+    <!-- CAPABILITIES SECTION -->
+    <section class="capabilities">
+        <div class="grid-3-col">
+            <!-- Box 1 -->
+            <div class="service-box">
+                <div class="icon">📈</div>
+                <h2>Analytics Systems</h2>
+                <p>Deploy custom user tracking matrix layers that isolate pipeline friction drops automatically.</p>
+            </div>
+            <!-- Box 2 -->
+            <div class="service-box">
+                <div class="icon">🔒</div>
+                <h2>Cloud Integrity</h2>
+                <p>Isolate structural network protocols behind multi-stage verification security boundaries.</p>
+            </div>
+            <!-- Box 3 -->
+            <div class="service-box">
+                <div class="icon">🎨</div>
+                <h2>UI Systems</h2>
+                <p>Establish crisp typographic hierarchies and functional element component specifications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING TIERS SECTION -->
+    <section class="pricing-section">
+        <h2>Transparent Pricing Plans</h2>
+        <div class="pricing-grid">
+            
+            <!-- Standard Plan -->
+            <div class="pricing-card">
+                <div class="tier-name">Growth Plan</div>
+                <div class="price">$29<span>/mo</span></div>
+                <ul class="features-list">
+                    <li>3 Active Core Domain Links</li>
+                    <li>Basic Analytical Tracking Tools</li>
+                    <li>Standard SSL Security Bundles</li>
+                    <li>Email Customer Care Channels</li>
+                </ul>
+                <a href="#" class="btn-pricing">Select Growth</a>
+            </div>
+
+            <!-- Pro Plan (Featured) -->
+            <div class="pricing-card featured">
+                <div class="badge">Most Popular</div>
+                <div class="tier-name">Scale Plan</div>
